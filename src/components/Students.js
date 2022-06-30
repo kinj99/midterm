@@ -1,53 +1,38 @@
 import React from 'react';
-import { Card, Row, Col, Container } from "react-bootstrap";
-import Button from 'react-bootstrap/Button';
+import Student from './Student';
+
 
 
 function Students() {
     const cardInfo = [
         {
-            image:"s1.png",
+            image:'s1.png',
             name: "Mike",
             gpa: 3.8
           },
           {
-            image:"s2.png",
+            image:'s2.png',
               name: "Manal",
               gpa: 3.6
           },
           {
-            image:"s3.png",
+            image:'s3.png',
               name: "Moe",
               gpa: 3.2
           },
           {
-            image:"s4.png",
-              name: "Mary",
+            image:'s4.png',
+              name: 'Mary',
               gpa: 2.6
           }
     ];
 
-    const handler = (event) => {
-      alert("Alert: You clicked the button")
-    }
+    const studentCards = cardInfo.map(cards => <Student cards={cards}/>)
 
   return (
     <div>
-      <Container>
-        <Row xs={1} md={2}> 
-          {cardInfo.map((cardInfo, key))}
-          <Col key={key}>
-      <Card style={{width: '18rem'}}>
-        <Card.Img variant="top" src={cardInfo.image}/>
-        <Card.Body>
-          <Card.Title>{cardInfo.name}</Card.Title>
-          <Card.Text>{cardInfo.gpa}</Card.Text>
-          <Button variant="primary" onClick={handler}>Grade</Button>
-        </Card.Body>
-      </Card>
-      </Col>
-      </Row>
-      </Container>
+      <h1>Student List</h1>
+      <div key={cardInfo.name}>{studentCards}</div>
     </div>
   )
 }
